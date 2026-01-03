@@ -1,0 +1,124 @@
+# Geyser Configuration File
+# For documentation on any of these options, please visit: https://docs.geysermc.org/
+# 核心版本信息（无需修改）
+version: 2
+
+# 基岩版客户端连接设置
+bedrock:
+  # 基岩版连接端口（UDP协议，需在防火墙/安全组放行）
+  port: 19132
+  # 绑定的IP地址，0.0.0.0表示监听所有网卡
+  bind-address: 0.0.0.0
+  # 是否启用IPv6支持（一般设为false）
+  enable-ipv6: false
+  # 基岩版服务器的最大玩家数（与Java版同步）
+  max-players: 20
+  # 服务器名称（会在基岩版服务器列表显示）
+  server-name: "Minecraft 1.21.4 Fabric (模组)"
+  # 服务器描述（基岩版列表展示）
+  server-description: "基岩玩家免Java正版登录"
+  # 默认游戏模式（0=生存，1=创造，2=冒险，3=旁观）
+  default-gamemode: survival
+  # 是否启用PVP
+  pvp: true
+  # 是否开启在线玩家列表
+  show-players: true
+  # 服务器图标路径（留空则用默认）
+  server-icon: ""
+  # 是否允许基岩版玩家使用实验性功能
+  allow-experimental-gameplay: false
+  # 网络压缩阈值（字节），-1为默认
+  compression-threshold: -1
+  # 连接超时时间（秒）
+  connection-timeout: 30
+
+# Java版服务器连接设置
+remote:
+  # Java版服务器地址，Fabric本地服务器设为auto即可自动匹配
+  address: auto
+  # Java版服务器端口
+  port: 25565
+  # 验证类型：floodgate实现基岩玩家免Java正版验证
+  auth-type: floodgate
+  # 是否启用TCP_NODELAY（优化网络）
+  tcp-nodelay: true
+  # 连接超时时间（秒）
+  connection-timeout: 30
+  # 重试连接次数
+  retry-count: 3
+  # 重试间隔（毫秒）
+  retry-delay: 1000
+  # 是否启用SSL（仅用于远程Java服务器为正版服务器时）
+  use-ssl: false
+
+# Floodgate免正版验证配置（需安装Floodgate-Fabric模组）
+floodgate:
+  # 启用Floodgate
+  enabled: true
+  # 转发基岩玩家UUID到Java服务器
+  uuid-forwarding: true
+  # Floodgate公钥文件路径（自动生成，无需修改）
+  key-file: config/floodgate/public-key.pem
+  # 是否允许基岩玩家使用Xbox认证（默认开启）
+  allow-bedrock-authentication: true
+  # 基岩玩家用户名前缀（用于区分Java/基岩玩家，默认f:）
+  username-prefix: "f:"
+
+# 通用设置
+general:
+  # 语言配置（en_us/zh_cn，可设为中文）
+  locale: zh_cn
+  # 是否向基岩玩家显示坐标
+  show-coordinates: false
+  # 是否在基岩版玩家列表显示Java版玩家
+  bedrock-player-list: true
+  # 是否允许第三方披风
+  allow-third-party-capes: true
+  # 是否允许第三方耳朵（如狐狸耳等模组）
+  allow-third-party-ears: true
+  # 是否启用代理协议（仅用于BungeeCord/Velocity代理）
+  enable-proxy-protocol: false
+  # 转发基岩玩家的连接主机名到Java服务器
+  forward-hostname: false
+  # 禁用Ping穿透
+  disable-ping-passthrough: false
+  # Ping穿透间隔（秒）
+  ping-passthrough-interval: 30
+  # 是否记录玩家IP
+  log-player-ips: true
+  # 是否缓存玩家头像
+  cache-avatars: true
+  # 最大缓存头像数量
+  max-avatars: 256
+  # 头像缓存时长（秒）
+  log-player-ips: true
+  # 头像缓存时长（秒）
+  avatar-cache-duration: 86400
+  # 调试模式（排障时开启，平时设为false）
+  debug-mode: false
+  # 是否启用命令建议
+  command-suggestions: true
+  # 启用地址检查（防止恶意连接）
+  enable-address-check: true
+
+# 高级设置（一般无需修改）
+advanced:
+  # 区块加载距离（与Java版同步）
+  chunk-load-distance: 8
+  # 实体跟踪距离
+  entity-tracking-distance:
+    players: 48
+    animals: 48
+    monsters: 48
+    misc: 32
+    other: 64
+  # 是否启用区块预生成
+  enable-chunk-pre-generation: false
+  # 基岩版数据包路径
+  bedrock-packs: []
+  # 强制基岩版玩家使用的数据包
+  forced-packs: []
+  # 禁用的基岩版功能
+  disabled-features: []
+  # 启用的实验性功能
+  enabled-experimental-features: []
